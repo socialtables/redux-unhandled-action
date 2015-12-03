@@ -1,4 +1,4 @@
-export default function sameStateWarning() {
+export default function reduxUnhandledAction() {
 	return ({getState}) => (next) => (action) => {
 		const prevState = getState();
 		const result = next(action);
