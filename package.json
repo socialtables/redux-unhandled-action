@@ -1,0 +1,28 @@
+{
+  "name": "redux-unhandled-action",
+  "version": "0.0.1",
+  "description": "Redux middleware that logs an error to the console when an action does not mutate state",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/socialtables/redux-unhandled-action.git"
+  },
+  "keywords": [
+    "redux",
+    "warning",
+    "devtool",
+    "dev",
+    "tool",
+    "react",
+    "flux"
+  ],
+  "author": "Social Tables",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/socialtables/redux-unhandled-action/issues"
+  },
+  "homepage": "https://github.com/socialtables/redux-unhandled-action#readme"
+}
