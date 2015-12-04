@@ -1,6 +1,6 @@
 {
   "name": "redux-unhandled-action",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Redux middleware that logs an error to the console when an action does not mutate state",
   "main": "dist/index.js",
   "scripts": {
