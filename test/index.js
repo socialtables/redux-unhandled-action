@@ -32,13 +32,13 @@ test("should call next and pass action", function(assert) {
 	assert.end();
 });
 
-test("should error to console when state is not changed", function(assert) {
+test("should error to console when new state is not returned", function(assert) {
 	var action = {
 		type: "COOL_ACTION"
 	};
 	var consoleError = sinon.stub(console, "error");
 	var actionHandler = unhandledAction()({getState: getState})(nextSameState)(action);
-	assert.ok(consoleError.called, "console error is logged when state is not altered");
+	assert.ok(consoleError.called, "console error is logged when new state is is not provided");
 	consoleError.restore();
 	assert.end();
 });
@@ -49,6 +49,6 @@ test("should not error when state is properly updated", function(assert) {
 	};
 	var consoleError = sinon.stub(console, "error");
 	var actionHandler = unhandledAction()({getState: getState})(next)(action);
-	assert.notOk(consoleError.called, "console error is not logged when state is not altered");
+	assert.notOk(consoleError.called, "console error is not logged when a new state is returned");
 	assert.end();
 });
