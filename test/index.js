@@ -32,7 +32,7 @@ test("should call next and pass action", function(assert) {
 	assert.end();
 });
 
-test("should error to console when new state is not returned", function(assert) {
+test("should error to console when new state is not returned when default callback is used", function(assert) {
 	var action = {
 		type: "COOL_ACTION"
 	};
@@ -40,6 +40,16 @@ test("should error to console when new state is not returned", function(assert) 
 	var actionHandler = unhandledAction()({getState: getState})(nextSameState)(action);
 	assert.ok(consoleError.called, "console error is logged when new state is is not provided");
 	consoleError.restore();
+	assert.end();
+});
+
+test("should call passed in callback on error", function(assert) {
+	var action = {
+		type: "COOL_ACTION"
+	};
+	var stub = sinon.stub();
+	var actionHandler = unhandledAction(stub)({getState: getState})(nextSameState)(action);
+	assert.ok(stub.called, "pased in callback called");
 	assert.end();
 });
 
