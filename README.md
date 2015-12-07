@@ -7,12 +7,16 @@ A simple redux middleware that will log an error to the console if the state ret
 ### Install
 `npm install redux-unhandled-action --save`
 
+### API
+Takes a single argument, an optional callback that will be called if an action is unhandled. The default callback will log an error to the console with the action type. 
+
 ### Use
 ```js
 import {createStore, applyMiddleware } from "redux";
 import reduxUnhandledAction from "redux-unhandled-action";
 import reducer from "./reducer";
-const store = applyMiddleware(reduxUnhandledAction)(createStore);
+const callback = (action) => console.error(`${action} didn't lead to creation of a new state object`);
+const store = applyMiddleware(reduxUnhandledAction(callback))(createStore);
 ```
 - - -
 
