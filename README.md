@@ -12,11 +12,11 @@ Takes a single argument, an optional callback that will be called if an action i
 
 ### Use
 ```js
-import {createStore, applyMiddleware } from "redux";
+import { createStore, applyMiddleware } from "redux";
 import reduxUnhandledAction from "redux-unhandled-action";
 import reducer from "./reducer";
 const callback = (action) => console.error(`${action} didn't lead to creation of a new state object`);
-const store = applyMiddleware(reduxUnhandledAction(callback))(createStore);
+const store = createStore(reducer, applyMiddleware(reduxUnhandledAction(callback)));
 ```
 - - -
 
