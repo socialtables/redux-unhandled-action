@@ -62,3 +62,21 @@ test("should not error when state is properly updated", function(assert) {
 	assert.notOk(consoleError.called, "console error is not logged when a new state is returned");
 	assert.end();
 });
+
+test("should not call callback if action is not a plain object", function(assert) {
+	var action = [];
+	var callbackSpy = sinon.spy();
+	var actionHandler = unhandledAction(callbackSpy)({getState: getState})(spy)(action);
+	assert.equal(callbackSpy.callCount, 0, "callback is not called when action is not a plain object");
+	assert.ok(spy.calledWith(action), "next called with action when action is not a plain object");
+	assert.end();
+});
+
+test("should not call callback if action doesn't have type property", function(assert) {
+	var action = {};
+	var callbackSpy = sinon.spy();
+	var actionHandler = unhandledAction(callbackSpy)({getState: getState})(spy)(action);
+	assert.equal(callbackSpy.callCount, 0, "callback is not called when action doesn't have type property");
+	assert.ok(spy.calledWith(action), "next called with action when action doesn't have type property");
+	assert.end();
+});
