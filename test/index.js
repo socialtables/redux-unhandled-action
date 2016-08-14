@@ -60,6 +60,7 @@ test("should not error when state is properly updated", function(assert) {
 	var consoleError = sinon.stub(console, "error");
 	var actionHandler = unhandledAction()({getState: getState})(next)(action);
 	assert.notOk(consoleError.called, "console error is not logged when a new state is returned");
+	consoleError.restore();
 	assert.end();
 });
 
