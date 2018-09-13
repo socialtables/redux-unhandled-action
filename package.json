@@ -14,6 +14,7 @@
   },
   "keywords": [
     "redux",
+    "redux-middleware",
     "warning",
     "devtool",
     "dev",
@@ -29,7 +30,7 @@
   "homepage": "https://github.com/socialtables/redux-unhandled-action#readme",
   "devDependencies": {
     "babel-cli": "^6.2.0",
-    "babel-preset-es2015": "^6.1.18",
+    "babel-preset-env": "^1.7.0",
     "sinon": "^1.17.2",
     "tape": "^4.2.2"
   },
